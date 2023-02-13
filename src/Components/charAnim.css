@@ -1,0 +1,38 @@
+.slide-vertical .char, .slide-horizontal .char {
+    overflow: hidden;
+    color: transparent;
+}
+.slide-vertical .char:before, .slide-horizontal .char:before, .slide-vertical .char:after, .slide-horizontal .char:after {
+    visibility: visible;
+    color:#f5f5f5;
+    transition: transform 0.5s cubic-bezier(0.9, 0, 0.2, 1);
+    transition-delay: calc(0.2s + ( 0.02s * ( var(--char-index)) ));
+}
+.slide-vertical .char:before, .slide-horizontal .char:before {
+    color: #f5f5f5;
+    transition-delay: calc(0.02s * ( var(--char-index)));
+}
+.slide-vertical:hover .char:before, .slide-horizontal:hover .char:before {
+    transition-delay: calc(0.2s + ( 0.02s * ( var(--char-index)) ));
+}
+.slide-vertical:hover .char:after, .slide-horizontal:hover .char:after {
+    transition-delay: calc(0.02s * ( var(--char-index)));
+}
+.slide-vertical .char:before {
+    transform: translateY(-100%);
+}
+.slide-vertical:hover .char:before {
+    transform: translateY(0%);
+}
+.slide-vertical:hover .char:after {
+    transform: translateY(100%);
+}
+.slide-horizontal .char:before {
+    transform: translateX(110%);
+}
+.slide-horizontal:hover .char:before {
+    transform: translateX(0%);
+}
+.slide-horizontal:hover .char:after {
+    transform: translateX(-110%);
+}
